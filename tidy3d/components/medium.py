@@ -627,8 +627,11 @@ class Medium(AbstractMedium):
     ----
 
         **Notebooks:**
-            * `Introduction on Tidy3D working principles <../notebooks/Primer.html#Mediums>`_
-            * `Index <../notebooks/docs/features/medium.html>`_
+            * `Introduction on Tidy3D working principles <../../notebooks/Primer.html#Mediums>`_
+            * `Index <../../notebooks/docs/features/medium.html>`_
+
+        **GUI:**
+            * `Tutorial <https://www.flexcompute.com/tidy3d/learning-center/tidy3d-gui/Lecture-2-Mediums/>`_
 
     """
 
@@ -1358,12 +1361,22 @@ class CustomMedium(AbstractCustomMedium):
 
 class DispersiveMedium(AbstractMedium, ABC):
     """
-    A Medium with dispersion (propagation characteristics depend on frequency)
+    A Medium with dispersion (propagation characteristics depend on frequency).\
 
-    See Also
-    --------
+    Notes
+    -----
+        Dispersive mediums can be defined in three ways:
+        - Imported from our material_library.
+        - Defined directly by specifying the parameters in the various supplied dispersive models.
+        - Fitted to optical n-k data using the dispersion fitting tool plugin (more info later).
 
-    Notebook: `Fitting dispersive material models <../notebooks/Fitting.html>`_
+        .. TODO link to relevant functions above
+
+    Note
+    ----
+
+        **Notebooks:**
+            * `Fitting dispersive material models <../../notebooks/Fitting.html>`_
     """
 
     @abstractmethod
@@ -2704,7 +2717,7 @@ class AnisotropicMedium(AbstractMedium):
     ----
 
         **Notebooks:**
-            * `Broadband polarizer assisted by anisotropic metamaterial <../notebooks/SWGBroadbandPolarizer.html>`_
+            * `Broadband polarizer assisted by anisotropic metamaterial <../../notebooks/SWGBroadbandPolarizer.html>`_
 
     """
 
@@ -2848,7 +2861,7 @@ class FullyAnisotropicMedium(AbstractMedium):
     ----
 
         **Notebooks:**
-            * `Defining fully anisotropic materials <../notebooks/FullyAnisotropic.html>`_
+            * `Defining fully anisotropic materials <../../notebooks/FullyAnisotropic.html>`_
     """
 
     permittivity: TensorReal = pd.Field(
