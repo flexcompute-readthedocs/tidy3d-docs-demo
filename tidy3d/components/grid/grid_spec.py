@@ -141,11 +141,15 @@ class UniformGrid(GridSpec1d):
     -------
     >>> grid_1d = UniformGrid(dl=0.1)
 
-    Note
-    ----
+    See Also
+    --------
 
-        **Notebooks:**
-            * `Using automatic nonuniform meshing <../../notebooks/AutoGrid.html>`_
+    :class:`AutoGrid`
+        Specification for non-uniform grid along a given dimension.
+
+    **Notebooks:**
+        * `Photonic crystal waveguide polarization filter <../../../notebooks/PhotonicCrystalWaveguidePolarizationFilter.html>`_
+        * `Using automatic nonuniform meshing <../../notebooks/AutoGrid.html>`_
     """
 
     dl: pd.PositiveFloat = pd.Field(
@@ -291,12 +295,14 @@ class AutoGrid(GridSpec1d):
     -------
     >>> grid_1d = AutoGrid(min_steps_per_wvl=16, max_scale=1.4)
 
-    Note
-    -----
+    See Also
+    --------
 
-        **Notebooks:**
-            * `Using automatic nonuniform meshing <.../../notebooks/AutoGrid.html>`_
+    :class:`UniformGrid`
+        Uniform 1D grid.
 
+    **Notebooks:**
+        * `Using automatic nonuniform meshing <../../notebooks/AutoGrid.html>`_
     """
 
     min_steps_per_wvl: float = pd.Field(
@@ -425,6 +431,18 @@ class GridSpec(Tidy3dBaseModel):
     >>> custom = CustomGrid(dl=[0.2, 0.2, 0.1, 0.1, 0.1, 0.2, 0.2])
     >>> auto = AutoGrid(min_steps_per_wvl=12)
     >>> grid_spec = GridSpec(grid_x=uniform, grid_y=custom, grid_z=auto, wavelength=1.5)
+
+    See Also
+    --------
+
+    :class:`UniformGrid`
+        Uniform 1D grid.
+
+    :class:`AutoGrid`
+        Specification for non-uniform grid along a given dimension.
+
+    **Notebooks:**
+        * `Using automatic nonuniform meshing <../../notebooks/AutoGrid.html>`_
     """
 
     grid_x: GridType = pd.Field(
