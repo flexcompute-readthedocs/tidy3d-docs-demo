@@ -78,6 +78,7 @@ class Structure(AbstractStructure):
 
     * `Quickstart <../../notebooks/StartHere.html>`_: Usage in a basic simulation flow.
     * `First walkthrough <../../notebooks/Simulation.html>`_: Usage in a basic simulation flow.
+    * `Visualizing geometries in Tidy3D <../../notebooks/VizSimulation.html>`_
 
     **Lectures:**
 
