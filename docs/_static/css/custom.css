@@ -60,3 +60,12 @@ img {
 .sphinx-tabs-tab[aria-selected="true"] {
     background-color: var(--pst-color-on-background);
 }
+
+/* TODO make sure this is only for the API tables */
+/*table {*/
+/*  border: solid;*/
+/*}*/
+
+/*th {*/
+/*  border: thin;*/
+/*}*/
