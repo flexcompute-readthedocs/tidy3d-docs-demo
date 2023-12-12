@@ -67,7 +67,7 @@ class Structure(AbstractStructure):
     Notes
     ------
 
-        Structures can indeed be larger than the simulation domain in ``tidy3d``. In such cases, `tidy3d`` will
+        Structures can indeed be larger than the simulation domain in ``tidy3d``. In such cases, ``tidy3d`` will
         automatically truncate the geometry that goes beyond the domain boundaries. For best results, structures that
         intersect with absorbing boundaries or simulation edges should extend all the way through. In many such
         cases, an “infinite” size :class:`td.inf` can be used to define the size along that dimension.
@@ -166,9 +166,13 @@ class Structure(AbstractStructure):
 
 class MeshOverrideStructure(AbstractStructure):
     """Defines an object that is only used in the process of generating the mesh.
-    A :class:`MeshOverrideStructure` is a combination of geometry :class:`Geometry`,
-    grid size along x,y,z directions, and a boolean on whether the override
-    will be enforced.
+
+    Notes
+    -----
+
+        A :class:`MeshOverrideStructure` is a combination of geometry :class:`Geometry`,
+        grid size along ``x``, ``y``, ``z`` directions, and a boolean on whether the override
+        will be enforced.
 
     Example
     -------
