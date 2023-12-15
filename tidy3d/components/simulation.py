@@ -60,6 +60,7 @@ try:
 except ImportError:
     gdspy_available = False
 
+
 # minimum number of grid points allowed per central wavelength in a medium
 MIN_GRIDS_PER_WVL = 6.0
 
@@ -89,8 +90,8 @@ PML_HEIGHT_FOR_0_DIMS = 0.02
 
 
 class Simulation(AbstractSimulation):
-    """
-    Custom implementation of Maxwell’s equations which represent the physical model to be solved using the FDTD
+    """"
+    Custom implementation of Maxwell’s equations which represents the physical model to be solved using the FDTD
     method.
 
     Notes

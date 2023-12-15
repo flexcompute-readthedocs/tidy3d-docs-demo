@@ -48,8 +48,11 @@ def run(
     solver_version: str = None,
     worker_group: str = None,
 ) -> SimulationDataType:
-    """Submits a :class:`.Simulation` to server, starts running, monitors progress, downloads,
-    and loads results as a corresponding data object.
+    """
+
+    Submits a :class:`.Simulation` to server, starts running, monitors progress, downloads,
+    and loads results as a :class:`.SimulationData` object.
+>>>>>>> 2d1cef10 (FEAT: This needs a massive cleanup but more FAQ into API added):tidy3d/web/webapi.py
 
     Parameters
     ----------
@@ -117,6 +120,8 @@ def run(
 
     :meth:`tidy3d.web.Batch.monitor`
         Monitor progress of each of the running tasks.
+
+>>>>>>> 2d1cef10 (FEAT: This needs a massive cleanup but more FAQ into API added):tidy3d/web/webapi.py
     """
     task_id = upload(
         simulation=simulation,
@@ -623,7 +628,8 @@ def load(
     verbose: bool = True,
     progress_callback: Callable[[float], None] = None,
 ) -> SimulationDataType:
-    """Download and load simulation results into a data object.
+    """
+    Download and Load simulation results into :class:`.SimulationData` object.
 
     Notes
     -----
@@ -631,12 +637,14 @@ def load(
         After the simulation is complete, you can load the results into a :class:`.SimulationData` object by its
         ``task_id`` using:
 
-        .. code-block:: python
+        .. code-block:: python py
 
             sim_data = web.load(task_id, path="outt/sim.hdf5", verbose=verbose)
 
         The :meth:`tidy3d.web.load` method is very convenient to load and postprocess results from simulations
         created using Tidy3D GUI.
+
+>>>>>>> 2d1cef10 (FEAT: This needs a massive cleanup but more FAQ into API added):tidy3d/web/webapi.py
 
     Parameters
     ----------

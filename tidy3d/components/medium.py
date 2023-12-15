@@ -30,7 +30,6 @@ from .parameter_perturbation import ParameterPerturbation
 from .heat_spec import HeatSpecType
 from .time_modulation import ModulationSpec
 
-
 # evaluate frequency as this number (Hz) if inf
 FREQ_EVAL_INF = 1e50
 
@@ -88,7 +87,6 @@ def ensure_freq_in_range(eps_model: Callable[[float], complex]) -> Callable[[flo
 class NonlinearModel(ABC, Tidy3dBaseModel):
     """Abstract model for a nonlinear material response.
     Used as part of a :class:`.NonlinearSpec`."""
-
     def _validate_medium_type(self, medium: AbstractMedium):
         """Check that the model is compatible with the medium."""
         if isinstance(medium, AbstractCustomMedium):
@@ -162,25 +160,33 @@ class NonlinearModel(ABC, Tidy3dBaseModel):
         pass
 
 
+<<<<<<< HEAD
 class NonlinearSusceptibility(NonlinearModel):
     """Model for an instantaneous nonlinear chi3 susceptibility.
+=======
+class NonlinearSusceptibility(NonlinearSpec):
+    """
+    Specification adding an instantaneous nonlinear susceptibility to a medium.
+>>>>>>> 416e40b1 (FEAT: Cleanup docstrings from a-mode)
     The expression for the instantaneous nonlinear polarization is given below.
 
     Notes
     -----
 
+        This model uses real time-domain fields, so :math:`\\chi_3` must be real.
+
         .. math::
 
             P_{NL} = \\varepsilon_0 \\chi_3 |E|^2 E
 
-        This model uses real time-domain fields, so :math:`\\chi_3` must be real.
+        The nonlinear constitutive relation is solved iteratively; it may not converge
+        for strong nonlinearities. Increasing :attr:`tidy3d.NonlinearSpec.numiters` can help with convergence.
 
         For complex fields (e.g. when using Bloch boundary conditions), the nonlinearity
         is applied separately to the real and imaginary parts, so that the above equation
-        holds when both E and :math:`P_{NL}` are replaced by their real or imaginary parts.
-        The nonlinearity is applied to the real and imaginary components separately since
-        each of those represents a physical field.
-
+        holds when both :math:`E` and :math:`P_{NL}` are replaced by their real or imaginary parts.
+        The nonlinearity is only applied to the real-valued fields since they are the
+        physical fields.
 
         Different field components do not interact nonlinearly. For example,
         when calculating :math:`P_{NL, x}`, we approximate :math:`|E|^2 \\approx |E_x|^2`.

@@ -40,7 +40,6 @@ from ..base_sim.data.monitor_data import AbstractMonitorData
 
 Coords1D = ArrayFloat1D
 
-
 class MonitorData(AbstractMonitorData, ABC):
     """
     Abstract base class of objects that store data pertaining to a single :class:`.monitor`.
